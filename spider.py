@@ -9,12 +9,7 @@ import urllib
 import urllib2
 import sys
 import cookielib
-"""
-如果用 urllib.request.urlopen 方式打开一个URL,服务器端只会收到一个单纯的对于该页面访问的请求,
-但是服务器并不知道发送这个请求使用的浏览器,操作系统,硬件平台等信息,而缺失这些信息的请求往往都是非正常的访问,例如爬虫.
-有些网站为了防止这种非正常的访问,会验证请求信息中的UserAgent(它的信息包括硬件平台、系统软件、应用软件和用户个人偏好),
-如果UserAgent存在异常或者是不存在,那么这次请求将会被拒绝(如上错误信息所示)
-"""
+
 
 def django_china():
 	"""登录Django-china"""
@@ -30,12 +25,20 @@ def django_china():
            	}
 	url = 'http://django-china.cn/accounts/signin/'
 	values = {'identification':'xinxinyu2011@163.com','password':'fang1991','csrfmiddlewaretoken':'oIW57aV5SrBQgcjAvUvwa4WdN2CvCtQ8'}
-	data = urllib.urlencode(values)							# url编码
-	req = urllib2.Request(url,data,headers=headers)			# 发送请求同时传data表单
-	response = urllib2.urlopen(req)							# 返回一个相关请求response对象
-	content = response.read()								# 读取反馈的内容 
-	type = sys.getfilesystemencoding()      				# local encode format  
-	print content.decode("UTF-8").encode(type)  			# convert encode format  
+	data = urllib.urlencode(values)									# url编码
+	req = urllib2.Request(url,data,headers=headers)					# 发送请求同时传data表单
+	try:
+		response = urllib2.urlopen(req)								# 返回一个相关请求response对象
+	except urllib2.URLError, e:
+		if hasattr(e, 'reason'):
+			print 'Reason: ', e.reason
+		elif hasattr(e, 'code'):
+			print 'Code: ', e.code
+	else:
+		content = response.read()									# 读取反馈的内容 
+		type = sys.getfilesystemencoding()      					# local encode format  
+		print content.decode("UTF-8").encode(type)  				# convert encode format  
+		
 
 
 def Cnblog():
