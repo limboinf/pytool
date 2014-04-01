@@ -23,7 +23,6 @@ regex = re.compile(
     r'(?::\d+)?' # optional port
     r'(?:/?|[/?]\S+)$', re.IGNORECASE)
 
-
 class MyHTMLParser(HTMLParser):
     def __init__(self):
         HTMLParser.__init__(self)
@@ -66,8 +65,8 @@ def get_short_url():
 	    hp.close()
 	    print(hp.values)
 
-	
-		
+
+
 def main():
 	get_short_url()
 
