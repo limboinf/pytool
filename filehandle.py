@@ -103,43 +103,9 @@ def HandleFile(filename):
     return con_msg
 
 
-def sent_cnblog():
-    """发送到博客园"""
-    url = 'http://passport.cnblogs.com/login.aspx'
-    data = {
-        '__EVENTTARGET': '',
-        '__EVENTARGUMENT': '',
-        '__VIEWSTATE': 'wEPDwULLTE1MzYzODg2NzZkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBQtjaGtSZW1lbWJlcm1QYDyKKI9af4b67Mzq2xFaL9Bt',
-        '__EVENTVALIDATION': '/wEdAAUyDI6H/s9f+ZALqNAA4PyUhI6Xi65hwcQ8/QoQCF8JIahXufbhIqPmwKf992GTkd0wq1PKp6+/1yNGng6H71Uxop4oRunf14dz2Zt2+QKDEIYpifFQj3yQiLk3eeHVQqcjiaAP',
-        'tbUserName': 'BeginMan',
-        'tbPassword': '1991fang',
-        'btnLogin': '登  录',
-        'txtReturnUrl': 'http://www.cnblogs.com/'
-    }
-    encode_data = urllib.urlencode(data)
-    headers = {
-        'User-Agent' : user_agent,
-        'Host':'passport.cnblogs.com',
-        'Origin':'http://passport.cnblogs.com',
-        'Referer':'http://passport.cnblogs.com/login.aspx'
-        }
-    req = urllib2.Request(url,encode_data,headers=headers)
-    try:
-        response = urllib2.urlopen(req)
-    except urllib2.URLError, e:
-        if hasattr(e, 'reason'):
-            print 'Reason:', e
-        elif hasattr(e, 'code'):
-            print 'Code:', e
-    else:
-        result = response.read()
-        print response.geturl()
-        print result
-
 
 def main():
-    # print ChoiceFile()
-    sent_cnblog()
+    print ChoiceFile()
 
 
 if __name__ == '__main__':
