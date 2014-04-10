@@ -146,6 +146,25 @@ def get_short_url(long_url):
         hp.close()
         values_list = hp.values[0]
         return values_list   
+
+def Get_Blog_Info(url):
+    """"获取博客标题和简介，如果有图片抓取图片"""
+    req = urllib2.Request(url,headers)
+    try:
+        response = urllib2.urlopen(req)
+    except urllib2.URLError, e:
+        if hasattr(e, 'reason'):
+            print 'Reason: ', e
+        elif hasattr(e, 'code'):
+            print 'Code: ', e
+    else:
+        result = response.read()
+        hp = MyHTMLParser()
+        hp.feed(result)
+        hp.close()
+        values_list = hp.values[0]
+        return values_list   
+
            
         
 def main():
