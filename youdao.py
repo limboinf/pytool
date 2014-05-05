@@ -66,7 +66,13 @@ def Sjson(json_data):
 	print print_format
 	choices = raw_input(u'是否写入单词本,回复（y/n）:')
 	if choices in ['y','Y']:
-		filepath = r'/home/beginman/pyword/%s.xml' %datetime.date.today()
+		ori_file_path = os.path.abspath(__file__)
+                files=os.path.split(ori_file_path)[0]
+                pywords = files+r'/pyword'
+                if not os.path.isdir(pywords):
+                    os.makedirs(pywords)
+                    
+                filepath = pywords+r'/%s.xml' %datetime.date.today()
 		if (platform.system()).lower() == 'windows':
 			filepath = r'E:\pyword\%s.xml' %datetime.date.today()
 		fp = open(filepath,'a+')
