@@ -1,7 +1,5 @@
 #coding=utf-8
 import logging
-import datetime
-import time
 import MySQLdb
 from django.db import connections, connection,transaction
 log = logging.getLogger(__name__)
