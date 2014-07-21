@@ -19,9 +19,9 @@ headers = {'User-Agent' : user_agent}
 def getCategoryOrTag(type=1):
     """get blog categories or tags"""
     if type:
-        url='http://blog.beginman.cn/api/category/'
+        url='http://beginman.sinaapp.com/api/category/'
     else:
-        url='http://blog.beginman.cn/api/tag/'
+        url='http://beginman.sinaapp.com/api/tag/'
     req = urllib2.Request(url, headers=headers)
     try:
         response = urllib2.urlopen(req)
@@ -42,7 +42,6 @@ def getMenuDatas():
         title = raw_input('标题： ').strip()
 
     categories = json.loads(getCategoryOrTag())
-
     cateID = 0
     while not cateID:
         for obj in categories:
@@ -70,12 +69,13 @@ def getMenuDatas():
 
 def login():
     """login blog"""
-    loginurl = 'http://blog.beginman.cn/login/'
+    loginurl = 'http://beginman.sinaapp.com/login/'
     loginInfo = urllib.urlencode({'us':'BeginMan', 'pwd':'root'})
     cj = cookielib.LWPCookieJar()
     opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
     urllib2.install_opener(opener)
     req = urllib2.Request(loginurl, loginInfo,headers=headers)
+    response = None
     try:
         response = urllib2.urlopen(req)
     except urllib2.URLError, e:
@@ -84,7 +84,7 @@ def login():
         elif hasattr(e, 'code'):
             print 'Code: ', e
     finally:
-        if response.getcode() == 200:
+        if response and response.getcode() == 200:
             print u'登陆成功！'
             return True
 
@@ -97,7 +97,7 @@ def postBlog():
     datas = getMenuDatas()
     login()
     datas = datas[0]+'&type=%s' %datas[1]
-    url='http://blog.beginman.cn/manage/add/'
+    url='http://beginman.sinaapp.com/manage/add/'
     req = urllib2.Request(url, datas, headers=headers)
     try:
         response = urllib2.urlopen(req)

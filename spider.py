@@ -11,7 +11,9 @@ import sys
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
 import cookielib
+import string
 
+"""test"""
 
 def django_china():
 	"""登录Django-china"""
