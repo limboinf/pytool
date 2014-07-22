@@ -70,7 +70,7 @@ def getMenuDatas():
 def login():
     """login blog"""
     loginurl = 'http://beginman.sinaapp.com/login/'
-    loginInfo = urllib.urlencode({'us':'BeginMan', 'pwd':'root'})
+    loginInfo = urllib.urlencode({'us':'****', 'pwd':'****'})
     cj = cookielib.LWPCookieJar()
     opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
     urllib2.install_opener(opener)
