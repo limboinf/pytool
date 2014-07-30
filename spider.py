@@ -54,8 +54,8 @@ def Cnblog():
         'User-Agent':'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.115 Safari/537.36'
     }
 	params = {
-                'tbUserName':'BeginMan',
-                'tbPassword':'1991fang',
+                'tbUserName':'******',
+                'tbPassword':'******',
                 "__EVENTVALIDATION":"/wEdAAUyDI6H/s9f+ZALqNAA4PyUhI6Xi65hwcQ8/QoQCF8JIahXufbhIqPmwKf992GTkd0wq1PKp6+/1yNGng6H71Uxop4oRunf14dz2Zt2+QKDEIYpifFQj3yQiLk3eeHVQqcjiaAP",
                 "__VIEWSTATE	":"/wEPDwULLTE1MzYzODg2NzZkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBQtjaGtSZW1lbWJlcm1QYDyKKI9af4b67Mzq2xFaL9Bt",
                 "btnLogin":"登  录",
