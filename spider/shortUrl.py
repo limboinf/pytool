@@ -61,9 +61,9 @@ def get_short_url():
 	else:
 		result = response.read()
 		hp = MyHTMLParser()
-		hp.feed(result)
-	    hp.close()
-	    print(hp.values)
+        hp.feed(result)
+        hp.close()
+        print(hp.values)
 
 
 
