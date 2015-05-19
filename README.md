@@ -14,4 +14,6 @@ Author  : BeginMan
 
 [`spider`](https://github.com/BeginMan/pytool/tree/master/spider):爬虫小工具
 
+[`visual`](https://github.com/BeginMan/pytool/tree/master/visual):Python视觉编程
+
 [`xlrd`](https://github.com/BeginMan/pytool/tree/master/xlrd):Excel处理工具
