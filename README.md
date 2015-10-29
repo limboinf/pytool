@@ -1,8 +1,5 @@
-Project: Pytool
-Author  : BeginMan
+Pytools 自己编写的python widgets
 ======
-
-关于自己编写的python小工具
 
 [`date`](https://github.com/BeginMan/pytool/tree/master/date): 常用日期时间处理
 
@@ -17,3 +14,6 @@ Author  : BeginMan
 [`visual`](https://github.com/BeginMan/pytool/tree/master/visual):Python视觉编程
 
 [`xlrd`](https://github.com/BeginMan/pytool/tree/master/xlrd):Excel处理工具
+
+blog: [beginman.cn](http://beginman.cn)
+
