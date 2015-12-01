@@ -33,7 +33,7 @@ class Fetcher:
     def pop(self):
         return self.q_ans.get()
  
-    #线程执行的任务，根据req来区分
+    # 线程执行的任务，根据req来区分
     def threadget(self):
         while True:
             req = self.q_req.get()
