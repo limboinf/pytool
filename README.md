@@ -1,19 +1,17 @@
-Pytools 自己编写的python widgets
+Pytools 自己编写的实用 python widgets
 ======
 
-[`date`](https://github.com/BeginMan/pytool/tree/master/date): 常用日期时间处理
+- datastruct: 数据结构
+- date_time: 日期时间操作
+- email_: 邮件相关
+- for_redis: redis操作相关
+- funs_: 有趣的脚本
+- jsons_: json处理相关
+- log_: 日志相关
+- multithread: 多线程相关
+- spider: 爬虫相关
+- handle_datas: 数据处理相关
+- visual: 可视化相关
 
-[`emailSys`](https://github.com/BeginMan/pytool/tree/master/emailSys):发送邮件
-
-[`log`](https://github.com/BeginMan/pytool/tree/master/log):日志处理
-
-[`os`](https://github.com/BeginMan/pytool/tree/master/os):OS处理
-
-[`spider`](https://github.com/BeginMan/pytool/tree/master/spider):爬虫小工具
-
-[`visual`](https://github.com/BeginMan/pytool/tree/master/visual):Python视觉编程
-
-[`xlrd`](https://github.com/BeginMan/pytool/tree/master/xlrd):Excel处理工具
-
-blog: [beginman.cn](http://beginman.cn)
+不断更新中，欢迎star & fork. 博客:[(beginman.cn)](http://beginman.cn)
 
