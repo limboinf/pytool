@@ -20,7 +20,7 @@ class MyRedis(object):
         'other': 5,
     }
     servers = {
-        'test': {'host': '127.0.0.1', 'port': 6379, 'password': '2015yunlianxiQAZWSX'},
+        'test': {'host': '127.0.0.1', 'port': 6379, 'password': 'yourpasswd'},
         'prod': {'host': '', 'port': 6379, 'password': ''},
         'talk': {'host': '', 'port': 6379, 'password': ''}
     }
