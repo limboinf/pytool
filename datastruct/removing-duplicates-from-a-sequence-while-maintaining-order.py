@@ -22,6 +22,7 @@ def method1(items):
 
 
 def method2(items):
+    """更高效些"""
     n = set()
     for i in items:
         if i not in n:
@@ -31,4 +32,11 @@ def method2(items):
 
 print method1(a)            # [1, 5, 2, 9, 10]
 print list(method2(a))      # [1, 5, 2, 9, 10]
+
+
+# 如果如果你想读取一个文件，消除重复行，你可以很容易像这样做：
+#
+# with open(somefile,'r') as f:
+# for line in method2(f):
+#     ...
 
