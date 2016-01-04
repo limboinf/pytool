@@ -1,5 +1,7 @@
-Pytools 自己编写的实用 python widgets
+Pytools 实用的 python widgets
 ======
+
+python项目开发过程中，总结的一些实用的技巧。
 
 - datastruct: 数据结构
 - date_time: 日期时间操作
