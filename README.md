@@ -1,7 +1,7 @@
 Pytools 实用的 python widgets
 ======
 
-python项目开发过程中，总结的一些实用的技巧。
+python项目开发过程中，总结的一些实用的技巧。Python 2.7.X 下测试
 
 - datastruct: 数据结构
 - date_time: 日期时间操作
