@@ -27,3 +27,14 @@ print round(a, -4)          # 1630000.0
 x = 1.23456
 print format(x, '0.2f')
 print 'value is {:0.3f}'.format(x)
+
+# Python浮点数
+"""
+>>> a = 0.1+0.2
+>>> a
+0.30000000000000004
+>>> round(a, 2)
+0.3
+>>> 0.1+0.2 == 0.3
+False
+"""
