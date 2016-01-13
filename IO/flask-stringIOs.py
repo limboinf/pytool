@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-关于StringIO参考
+关于StringIO参考 ：https://github.com/BeginMan/pythonStdlib/blob/master/stringIO.md
     :copyright: (c) 2015 by fangpeng.
     :license: MIT, see LICENSE for more details.
 """
