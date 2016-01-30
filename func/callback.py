@@ -50,3 +50,22 @@ def make_handler():
 m = make_handler()
 apply_async(add, (100, 1), m)
 apply_async(add, (100, 2), m)
+
+
+# 协程
+def yield_make_handler():
+    seq = 0
+    while 1:
+        result = yield
+        seq += 1
+        print('[{}] Got: {}'.format(seq, result))
+
+handler = yield_make_handler()
+
+# 先next()，否则 TypeError: can't send non-None value to a just-started generator
+# 不next也行，可以用 handler.send(None)来替代
+next(handler)
+
+# 协程使用send方法做回调
+apply_async(add, (2, 3), callback=handler.send)
+apply_async(add, ('hello', 'world'), callback=handler.send)
