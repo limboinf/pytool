@@ -5,7 +5,6 @@
     :license: MIT, see LICENSE for more details.
 """
 __date__ = '2/18/16'
-import math
 
 
 class Structure(object):
