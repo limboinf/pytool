@@ -12,6 +12,12 @@ def byte_string_to_hex(bstr):
     """
     Convenience method for converting a byte string to its hex representation
     `%02x` means print at least 2 digits, prepend it with 0's if there's less.
+
+    pythond standlib:
+    >>>import binascii
+    >>>binascii.a2b_hex()
+
+    ref:https://github.com/BeginMan/pythonStdlib/blob/master/binascii.md
     """
     if not isinstance(bstr, str):
         bstr = bstr.encode("utf-8")
@@ -22,6 +28,10 @@ def byte_string_to_hex(bstr):
 def byte_string_from_hex(hstr):
     """
     Convenience method for converting a byte string from its hex representation
+
+    pythond standlib:
+    >>>import binascii
+    >>>binascii.b2a_hex()
     """
     byte_array = []
 
