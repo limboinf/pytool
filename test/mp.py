@@ -5,8 +5,7 @@ desc..
     :license: MIT, see LICENSE for more details.
 """
 from math import radians, cos, sin, asin, sqrt
-# TODO hi
-ab*00
+
 
 def haversine(lon1, lat1, lon2, lat2): # 经度1，纬度1，经度2，纬度2 （十进制度数）
     # 将十进制度数转化为弧度
