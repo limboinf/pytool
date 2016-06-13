@@ -25,7 +25,6 @@ def syntax_checker():
     with proc.stdout as std_out:
         for staged_file in std_out.readlines():
             staged_file = staged_file.strip()
-            print staged_file
 
             if not is_python_file(staged_file):
                 continue
@@ -68,7 +67,7 @@ def is_error(errors):
         print ("[failed] You cann't commit, repair the errors "
                "or run `pyflakes` view details:\n"
                "------------------------------")
-        print errors
+        print (errors)
     return failed
 
 
@@ -77,7 +76,7 @@ def is_warning(warning):
     failed = False
 
     if warning:
-        print warning
+        print (warning)
         print ("Encounter some non-standard syntax! "
                "Do you want to correct them? y(es) or n(o):")
 
@@ -91,12 +90,15 @@ def is_warning(warning):
             elif input_row in ('n', 'no'):
                 failed = False
                 break
-            print 'Input y(es) or n(o):'
+            print('Input y(es) or n(o):')
 
     return failed
 
 
-print '=================== syntax check start ======================='
+print ('=================== syntax check start =======================')
 failed = syntax_checker()
-print '=================== syntax check end ========================='
+if not failed:
+    print (":) All Is OK!")
+
+print ('=================== syntax check end =========================')
 sys.exit(1 if failed else 0)
