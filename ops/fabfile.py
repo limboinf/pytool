@@ -1,11 +1,13 @@
 # coding=utf-8
 """
-desc..
+fabric自动化部署
+
     :copyright: (c) 2016 by fangpeng(@beginman.cn).
     :license: MIT, see LICENSE for more details.
 """
 from fabric.api import local, env, cd, run
 from fabric.context_managers import prefix
+
 
 def production():
     """设置生成环境"""
