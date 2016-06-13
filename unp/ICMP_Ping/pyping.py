@@ -43,13 +43,13 @@ class Ping(object):
             # ord字符的ascii 码
             val = ord(source_string[count + 1]) * 256 + ord(source_string[count])
             sum = sum + val
-            sum = sum & 0xffffff
+            sum = sum & 0xffffffff
             count = count + 2
 
         # 如果数据长度为奇数,则将最后一位单独相加
         if max_count < len(source_string):
             sum = sum + ord(source_string[len(source_string) - 1])
-            sum = sum & 0xffffff
+            sum = sum & 0xffffffff
 
         # 将高16位与低16位相加直到高16位为0
         sum = (sum >> 16) + (sum & 0xffff)

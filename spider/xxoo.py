@@ -34,8 +34,8 @@ def start(page_id):
     for img in imgs:
         try:
             link = img.get('src')
-            if link.startswith('http://k.min.us/') or link.startswith('http://i.min.us/') \
-                    or link.startswith('http://s.jandan.com/'):
+            if link.startswith('http://k.min.us/') or link.startswith(
+                    'http://i.min.us/') or link.startswith('http://s.jandan.com/'):
                 continue
 
             file_name = link[-11:].replace('/', '')
