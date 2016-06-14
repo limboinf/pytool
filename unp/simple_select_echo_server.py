@@ -43,4 +43,3 @@ while(inputs):
                 print 'EOF'
                 inputs.remove(sock)
                 sock.close()
-
