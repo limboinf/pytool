@@ -9,17 +9,20 @@ https://github.com/dieseldev/diesel
 """
 import diesel
 
+
 class EchoServer(object):
+
     def handler(self, remote_addr):
         host, port = remote_addr[0], remote_addr[1]
         print "Echo client connected from: %s:%d" % (host, port)
-        while 1:
+        while True:
             try:
                 msg = diesel.until_eol()
                 y = ': '.join(["you said", msg])
                 diesel.send(y)
-            except Exception, e:
+            except Exception as e:
                 print e
+
 
 def main(server_port):
     app = diesel.Application()
