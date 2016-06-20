@@ -1,28 +1,64 @@
-#/usr/bin/python
 # coding=utf-8
 """
-个人blog md生成：http://beginman.cn
-command: genblog.sh genblog.py "文件名" "文件标题" 分类
-注意换行符的问题
+blog markdown 自动生成, 博客markdown文件在 _post 下,文件格式:
+
+```
+---
+layout: post
+title: "博客标题"
+description: "该篇博客的简介"
+category: "分类"
+tags: [标签,逗号分隔]
+---
+balabal 博客内容..
+
+```
+
+github项目: https://github.com/BeginMan/beginman.github.io
+
     :copyright: (c) 2015 by fangpeng.
     :license: MIT, see LICENSE for more details.
 """
-__date__ = '11/10/15'
-import sys
+
 import os
 import datetime
+import argparse
 
-def genmd():
+BLOG_DIR = '_posts'
+
+
+def gen_md(parses):
     ds = datetime.datetime.now().strftime("%Y-%m-%d")
-    if len(sys.argv) > 1:
-        title = sys.argv[1]
-        path = os.path.join(os.getcwd(), ds + '-' + title + '.md')
-        if not os.path.exists(path):
-            f = open(path, 'w')
-            f.write('---\r\nlayout: post\r\ntitle: "%s"\r\ndescription: "%s"\r\ncategory: "%s"\r\ntags: [%s]\r\n---\r\n{%% include JB/setup %%}\r\n'
-                    % (sys.argv[2], sys.argv[2], sys.argv[3], sys.argv[3]))
-            f.close()
+    basepath = os.path.join(os.getcwd(), BLOG_DIR + '/' + parses.category)
+    filepath = os.path.join(basepath, ds + '-' + parses.filename + '.md')
+    if not os.path.exists(filepath):
 
+        if not os.path.exists(basepath):
+            os.makedirs(basepath)
+
+        with open(filepath, 'w') as f:
+            parser = vars(parses)
+            parser.pop('filename')
+            parser.update({'template': '{% include JB/setup %}'})
+            f.write("""---
+                    \r\nlayout: post
+                    \r\ntitle: "{title}"
+                    \r\ndescription: "{desc}"
+                    \r\ncategory: "{category}"
+                    \r\ntags: [{tags}]
+                    \r\n---
+                    \r\n{template}\r\n""".format(**parser))
+    else:
+        print("file exist!")
+
+    print(filepath)
 
 if __name__ == "__main__":
-    genmd()
+    parser = argparse.ArgumentParser(description="Generate markdown blog template.")
+    parser.add_argument('-f', '--filename', help="blog filename.", required=True)
+    parser.add_argument('-t', '--title', help="blog title.", required=True)
+    parser.add_argument('-d', '--desc', help="blog describe.", default='')
+    parser.add_argument('-c', '--category', help="blog category.", default='Tech')
+    parser.add_argument('--tags', help="blog tags, multiple tags split with comma.", default='')
+    args = parser.parse_args()
+    gen_md(args)
